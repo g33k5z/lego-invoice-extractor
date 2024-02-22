@@ -18,23 +18,23 @@ macOS
 export OPENAI_API_KEY='your_api_key_here'
 ```
 Windows/PowerShell
-```shell
+```powershell
 $env:OPENAI_API_KEY="your_api_key_here"
 ```
 
 #### Usage
 It is designed to be used as a command-line tool, where the user provides the path to the PDF file as an argument.
-```python
+```console
 python main.py LegoInvoice.pdf
 
-#CSV file has been created: LegoInvoice.pdf
+// CSV file has been created: LegoInvoice.pdf
 ```
 
 #### GPT Prompt
 We define the GPT prompt for item extraction as the below. This can be modified, extended as needed. 
 
 Just make sure the csv headser match in `json_to_csv()`.
-```string
+```shell
 Extract the 8 fields listed for all invoice items
   `[{"Article":, "Product":, "Description":, "Quantity":, "Unit Price":, "Discount":, "Net Price":, "Net Amount"}]`
 as JSON.
