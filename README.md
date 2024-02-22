@@ -43,3 +43,26 @@ Do not include additional comments.
 
 #### Example Lego Invoice PDF input
 <img width="1147" alt="Screenshot 2024-02-22 at 4 26 43 PM" src="https://github.com/g33k5z/lego-invoice-extractor/assets/6076074/98c98a40-b382-4049-904d-6bea1c03f333">
+
+
+
+##### OpenAI Quotas
+Depending on your quota, you may need to limit the pdf pages you input to 1 at at a time or lower the token response to help stay under the limits.
+
+```python
+
+def extract_invoice_items(self, pdf_text):
+...
+ response = self.client.chat.completions.create(
+                model="gpt-3.5-turbo-16k", #change model if needed
+                messages=[
+                      ...
+                ],
+                temperature=0,
+                max_tokens=8000, #lower max tokens 
+                top_p=1,
+                frequency_penalty=0,
+                presence_penalty=0,
+            )
+...
+```
